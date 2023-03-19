@@ -23,14 +23,30 @@ class ViewController: UIViewController {
 
 
     @IBAction func changeLight(_ sender: UIButton) {
-        if redLight.alpha != 1 {
+        if redLight.alpha != 1
+            && yellowLight.alpha != 1
+            && greenLight.alpha != 1
+        {
             redLight.alpha = 1
             sender.setTitle("Next", for: .normal)
-        }
-
-        if redLight.alpha == 1 {
+        } else if redLight.alpha == 1
+                    && yellowLight.alpha != 1
+                    && greenLight.alpha != 1
+        {
             redLight.alpha = 0.3
             yellowLight.alpha = 1
+        } else if yellowLight.alpha == 1
+                    && greenLight.alpha != 1
+                    && redLight.alpha != 1
+        {
+            yellowLight.alpha = 0.3
+            greenLight.alpha = 1
+        } else if greenLight.alpha == 1
+                    && redLight.alpha != 1
+                    && yellowLight.alpha != 1
+        {
+            greenLight.alpha = 0.3
+            redLight.alpha = 1
         }
     }
 
